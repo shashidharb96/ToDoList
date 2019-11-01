@@ -1,0 +1,17 @@
+{% extends "list/Base.html" %}
+
+
+{% block content %}
+
+<form   method="POST" >
+    {% csrf_token %}
+
+    <br>
+    <h1>Are you sure you want to Delete "{{object.title}}"</h1>
+    <input type="submit" name="button" value="Delete" > 
+   <a href="{% url 'post-detail' object.id %}"> No Cancel </a>
+  </form> 
+  
+
+
+{% endblock content %}

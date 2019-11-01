@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+   
+    {% if title  %}
+        <title>{{ title }}</title>
+    {% else %}
+    <title>Django-ToDo-List</title>
+
+
+    {% endif %}
+
+    {% if messages %}
+        {% for message in messages%}
+           {{message.tags}}
+        {% endfor %}
+
+    {% endif %}
+</head>
+<body>
+   {% block content %}  {% endblock content %}
+</body>
+</html>

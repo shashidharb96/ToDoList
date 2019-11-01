@@ -1,0 +1,23 @@
+{% extends "list/Base.html" %}
+{%load staticfiles  %}
+
+{% block content %}
+
+<a href="{% url 'post-create' %}"> New </a>
+
+</br>
+</br>
+</br>
+
+{% if posts %}
+{% for item in posts %}
+<!-- key name of context in views.py -->
+<a href="{% url 'post-detail' item.id %}"> {{ item.title }} </a> </br>
+<!-- for variables use 2 flower_braces and for 
+            loops and if use flower_braces and percentage symbol-->
+{% endfor %}
+{% else %}
+<h2>No ToDo list created - Create New</h2>
+{% endif %}
+
+{% endblock content %}

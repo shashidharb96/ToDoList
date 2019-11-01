@@ -1,0 +1,19 @@
+{% extends "list/Base.html" %}
+
+
+
+
+
+{% block content %}
+
+
+
+{{ object.data }}
+
+
+</br>
+</br>
+<a href="{% url 'post-update' object.id %}"> Update   </a> </br> </br>
+<a href="{% url 'post-delete' object.id %}"> Delete   </a>
+
+{% endblock content %}
