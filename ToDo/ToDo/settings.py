@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'list.apps.ListConfig',
     'user.apps.UserConfig',
     'rest_framework',
+    'APIJSON',
 ]
 
 MIDDLEWARE = [

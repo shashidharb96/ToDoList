@@ -1,7 +1,13 @@
 from django.shortcuts import render
 from .models import table_ToDo
 from django.views.generic import ListView , DetailView , DeleteView , UpdateView , CreateView
-
+from django.shortcuts import render
+from django.shortcuts import get_object_or_404
+from rest_framework.response import Response
+from .models import table_ToDo
+from .serializers import table_ToDoSerializer
+from rest_framework import status
+from rest_framework.views import APIView
 
 
 def Home(request):
@@ -31,3 +37,17 @@ class ToDoUpdateView(UpdateView):
 class ToDoDeleteView(DeleteView):
     model=table_ToDo
     success_url='/list/home/'
+
+
+
+class API_LIST(APIView):
+    def get(self, request):
+        lists=table_ToDo.objects.all()
+        serializer=table_ToDoSerializer(lists, many=True)
+        return Response(serializer.data)
+
+
+    def post(self):
+        pass
+
+
